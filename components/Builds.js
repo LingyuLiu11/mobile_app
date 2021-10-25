@@ -114,6 +114,7 @@ const Builds = () => {
       
         const renderItem = ({ item }) => (
           <Item title={item.title} />
+          
         )
       return (
         <SafeAreaView style={styles.container}>
@@ -128,14 +129,17 @@ const Builds = () => {
                   color=""
                   onPress = {() => setDebugging(!debugging)}
                   />
+                  <Separator />
           {debugView}
+          <Separator />
       <Button
                   title={(currlooking?'hide':'show')+" current build" }
                   color="green"
                   onPress = {() => setCurrlooking(!currlooking)}
                   />
+                  <Separator />
                   {currView}
-
+                  <Separator />
                   <Button
           color="green"
           title="Add"
@@ -150,6 +154,7 @@ const Builds = () => {
             // setAnswer('');
             // console.log(typeof reviews);
           }}/>
+          <Separator />
           <Button
                   color='green' title='Clear memory'
                   onPress = {() => {
@@ -157,6 +162,7 @@ const Builds = () => {
                         clearAll()
                       }}
                 />
+                <Separator />
         </SafeAreaView>
         
         
