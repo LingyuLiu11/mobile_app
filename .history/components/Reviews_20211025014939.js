@@ -59,15 +59,12 @@ const Reviews = () => {
     
 
     const clearAll = async () => {
-      try {
-        console.log('in clearData')
-        await AsyncStorage.clear()
-      } catch(e) {
-        console.log("error in clearData ")
-        console.dir(e)
-        // clear error
-      }
-}
+        try {
+          await AsyncStorage.clear()
+        } catch(e) {
+          console.dir(e)
+        }
+  }
 
 
 
@@ -106,13 +103,7 @@ const Reviews = () => {
       
       
       <Separator />
-      <Button
-                  color='green' title='Clear memory'
-                  onPress = {() => {
-                        console.log('clearing memory');
-                        clearAll()
-                      }}
-                />
+
       
               
           </View>

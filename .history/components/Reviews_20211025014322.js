@@ -8,7 +8,7 @@ const Separator = () => (
 );
 
 const Reviews = () => {
-    const [reviews, setReviews] = useState([0, 1]);
+    const [reviews, setReviews] = useState([]);
     const [debugging,setDebugging] = useState(false)
     const [answer,setAnswer] = useState('')
 
@@ -59,15 +59,12 @@ const Reviews = () => {
     
 
     const clearAll = async () => {
-      try {
-        console.log('in clearData')
-        await AsyncStorage.clear()
-      } catch(e) {
-        console.log("error in clearData ")
-        console.dir(e)
-        // clear error
-      }
-}
+        try {
+          await AsyncStorage.clear()
+        } catch(e) {
+          console.dir(e)
+        }
+  }
 
 
 
@@ -88,11 +85,11 @@ const Reviews = () => {
           color="green"
           title="Add"
           onPress={()=> {
-            
-            setReviews(reviews => [...reviews, answer]);
-            storeData(reviews);
+            const newReviews = reviews.concat(answer);
+            setReviews(newReviews);
+            storeData(newReviews);
             setAnswer('');
-            console.log(typeof reviews);
+            console.log({reviews})
           }}
       />
       
@@ -106,13 +103,7 @@ const Reviews = () => {
       
       
       <Separator />
-      <Button
-                  color='green' title='Clear memory'
-                  onPress = {() => {
-                        console.log('clearing memory');
-                        clearAll()
-                      }}
-                />
+
       
               
           </View>

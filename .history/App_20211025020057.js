@@ -52,7 +52,7 @@ function Main({ navigation }) {
         <Button
           margintop = '10'
           title="Make my build"
-          onPress={() => navigation.navigate('Build')}
+          onPress={() => navigation.navigate('Builds')}
         />
       </View>
        <Separator />
@@ -224,12 +224,14 @@ function MyStack() {
         name="Review"
         component={Review}
         options={{ headerStyleInterpolator: forFade }}
-      />
+      />]
+
       <Stack.Screen
         name="Build"
         component={Build}
         options={{ headerStyleInterpolator: forFade }}
       />
+
       
      
     </Stack.Navigator>

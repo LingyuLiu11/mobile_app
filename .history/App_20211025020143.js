@@ -172,7 +172,7 @@ function Build({ navigation }) {
       <View style = {styles.container}>
           <Button title="Go back" onPress={() => navigation.goBack()} />
       </View>
-      <Builds />
+      <Reviews />
     </div>
     
   );
@@ -227,7 +227,7 @@ function MyStack() {
       />
       <Stack.Screen
         name="Build"
-        component={Build}
+        component={Review}
         options={{ headerStyleInterpolator: forFade }}
       />
       

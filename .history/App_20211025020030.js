@@ -166,17 +166,7 @@ function Review({ navigation }) {
   );
 }
 
-function Build({ navigation }) {
-  return (
-    <div>
-      <View style = {styles.container}>
-          <Button title="Go back" onPress={() => navigation.goBack()} />
-      </View>
-      <Builds />
-    </div>
-    
-  );
-}
+
 
 
 
@@ -224,12 +214,10 @@ function MyStack() {
         name="Review"
         component={Review}
         options={{ headerStyleInterpolator: forFade }}
-      />
-      <Stack.Screen
-        name="Build"
-        component={Build}
-        options={{ headerStyleInterpolator: forFade }}
-      />
+      />]
+
+      
+
       
      
     </Stack.Navigator>

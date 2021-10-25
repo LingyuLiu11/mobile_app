@@ -47,15 +47,6 @@ function Main({ navigation }) {
         />
       </View>
        <Separator />
-
-       <View style = {styles.container}>
-        <Button
-          margintop = '10'
-          title="Make my build"
-          onPress={() => navigation.navigate('Build')}
-        />
-      </View>
-       <Separator />
       
     </div>
   );
@@ -166,18 +157,6 @@ function Review({ navigation }) {
   );
 }
 
-function Build({ navigation }) {
-  return (
-    <div>
-      <View style = {styles.container}>
-          <Button title="Go back" onPress={() => navigation.goBack()} />
-      </View>
-      <Builds />
-    </div>
-    
-  );
-}
-
 
 
 const forFade = ({ current, next }) => {
@@ -225,11 +204,7 @@ function MyStack() {
         component={Review}
         options={{ headerStyleInterpolator: forFade }}
       />
-      <Stack.Screen
-        name="Build"
-        component={Build}
-        options={{ headerStyleInterpolator: forFade }}
-      />
+
       
      
     </Stack.Navigator>

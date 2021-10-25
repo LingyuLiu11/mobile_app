@@ -106,13 +106,7 @@ const Reviews = () => {
       
       
       <Separator />
-      <Button
-                  color='green' title='Clear memory'
-                  onPress = {() => {
-                        console.log('clearing memory');
-                        clearAll()
-                      }}
-                />
+
       
               
           </View>

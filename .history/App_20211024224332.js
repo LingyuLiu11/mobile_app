@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Reviews from './components/Reviews'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Builds from './components/Builds'
+
 
 const Separator = () => (
   <View style={styles.separator} />
@@ -44,15 +44,6 @@ function Main({ navigation }) {
           margintop = '10'
           title="Go to Reviews"
           onPress={() => navigation.navigate('Review')}
-        />
-      </View>
-       <Separator />
-
-       <View style = {styles.container}>
-        <Button
-          margintop = '10'
-          title="Make my build"
-          onPress={() => navigation.navigate('Build')}
         />
       </View>
        <Separator />
@@ -166,13 +157,13 @@ function Review({ navigation }) {
   );
 }
 
-function Build({ navigation }) {
+function BuildArmy({ navigation }) {
   return (
     <div>
       <View style = {styles.container}>
           <Button title="Go back" onPress={() => navigation.goBack()} />
       </View>
-      <Builds />
+      <Reviews />
     </div>
     
   );
@@ -226,10 +217,11 @@ function MyStack() {
         options={{ headerStyleInterpolator: forFade }}
       />
       <Stack.Screen
-        name="Build"
-        component={Build}
+        name="Review"
+        component={Review}
         options={{ headerStyleInterpolator: forFade }}
       />
+
       
      
     </Stack.Navigator>
