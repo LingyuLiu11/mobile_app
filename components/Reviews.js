@@ -29,7 +29,7 @@ const Reviews = () => {
     
     const storeData = async (value) => {
         try {
-          const jsonValue = JSON.stringify(value)
+          const jsonValue = JSON.stringify(value);
           await AsyncStorage.setItem('@reviews', jsonValue)
           console.log('just stored '+jsonValue)
         } catch (e) {

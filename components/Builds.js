@@ -42,7 +42,7 @@ const Builds = () => {
     const storeData = async (value) => {
         try {
           const jsonValue = JSON.stringify(value)
-          await AsyncStorage.setItem('@reviews', jsonValue)
+          await AsyncStorage.setItem('@builds', jsonValue)
           console.log('just stored '+jsonValue)
         } catch (e) {
           console.dir(e)
@@ -51,7 +51,7 @@ const Builds = () => {
 
     const getData = async() => {
       try {
-        const jsonValue = await AsyncStorage.getItem('@reviews')
+        const jsonValue = await AsyncStorage.getItem('@builds')
         let data = null
         if (jsonValue != null) {
           data = JSON.parse(jsonValue)
