@@ -21,7 +21,6 @@ const Reviews = () => {
         {reviews.map((review) =><View><Text style ={{color:'red'}}>{review}</Text></View>)}   
         <Separator />     
       </View>
-
   }
 
   const storeData = async (value) => {
@@ -68,12 +67,11 @@ const Reviews = () => {
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <View style={styles.container}>
         <Text style={{fontSize:60}}> Add reviews </Text>
-        <TextInput style={{fontSize:60}} placeholder='???'onChangeText={text => {setAnswer(text)}}value={answer}/>
+        <TextInput style={{fontSize:60}} placeholder='???' onChangeText={text => {setAnswer(text)}}value={answer}/>
         <Separator/>
         <Button color="green" title="Add" onPress={()=> {setReviews(reviews => [...reviews, answer]);storeData(reviews);setAnswer('');console.log(typeof reviews);}}/>
         <Separator/>
         <Button title={(debugging?'hide':'show')+" Riviews" }color="green"onPress = {() => setDebugging(!debugging)}/>
-        {debugView}
         <Separator/>
         <Button color='green' title='Clear memory' onPress = {() => {console.log('clearing memory');clearAll()}}/>
       </View>
