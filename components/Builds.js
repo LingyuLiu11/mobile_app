@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Image, TextInput, FlatList, StyleSheet, View, Button, Text, Animated, SafeAreaView, StatusBar } from 'react-native';
+import { Image, TouchableOpacity, TextInput, FlatList, StyleSheet, View, Button, Text, Animated, SafeAreaView, StatusBar, ImageBackground } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Separator = () => (
     <View style={styles.separator} />
   );
-
+  const image = { uri: "https://www.nme.com/wp-content/uploads/2021/09/Total-Warhammer-3-Grand-Cathay-Dragon.jpg" };
 const Builds = () => {
     const [builds, setBuilds] = useState([]);
     const [debugging,setDebugging] = useState(false)
@@ -18,9 +18,8 @@ const Builds = () => {
   if (debugging) {
     debugView =
       <View>
-          {builds.map((build) =>
-          <View><Text style ={{color:'red'}}>{build}</Text></View>
-        )}   
+        {builds.map((build) =>
+        <View><Text style ={{color:'red'}}>{build}</Text></View>)}   
         <Separator />     
       </View>
 
@@ -30,9 +29,7 @@ const Builds = () => {
   if (currlooking) {
     currView =
       <View>
-          
-          <Text style ={{color:'blue'}}>{curr}</Text>
-        
+        <Text style ={{color:'blue'}}>{curr}</Text>
         <Separator />     
       </View>
 }
@@ -108,72 +105,47 @@ const Builds = () => {
       const Item = ({ title }) => {
         return (
           <View style={styles.item}>
-            <Button style={styles.title} title={title }
-                onPress={()=> {
-                    const newCurr = curr.concat(title + ' ');
-                    setCurr(newCurr);
-                    storeData(newCurr);
-                  }}
-            
-            />
+            <TouchableOpacity style={{backgroundColor:"#fca"}}  onPress={()=> {const newCurr = curr.concat(title + ' ');setCurr(newCurr); storeData(newCurr);}}>
+            <Text>{title}</Text>
+            <Image style={styles.tinyLogo} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiQlqbmzmjh691kWH6b1QxfBwKM_w67H1HPQ&usqp=CAU',}}/>
+              </TouchableOpacity>
+              
+            <Separator />
           </View>
         );
       }
       
-        const renderItem = ({ item }) => (
-          <Item title={item.title} />
-          
-        )
+      const renderItem = ({ item }) => (
+        <Item title={item.title} />    
+      )
       return (
-        <SafeAreaView style={styles.container}>
+        <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <View style={styles.container}>
           <FlatList
             data={DATA}
             renderItem={renderItem}
-            keyExtractor={item => item.id}
-          />
+            keyExtractor={item => item.id}/>
           <Separator />
           <Button
-                  title={(currlooking?'hide':'show')+" Builds" }
-                  color=""
-                  onPress = {() => setDebugging(!debugging)}
-                  />
-                  <Separator />
+            title={(currlooking?'hide':'show')+" Builds" }
+            color=""
+            onPress = {() => setDebugging(!debugging)}/>
+          <Separator />
           {debugView}
           <Separator />
-      <Button
-                  title={(currlooking?'hide':'show')+" current build" }
-                  color="green"
-                  onPress = {() => setCurrlooking(!currlooking)}
-                  />
-                  <Separator />
-                  {currView}
-                  <Separator />
-                  <Button
-          color="green"
-          title="Add"
-          onPress={()=> {
-            
-            setBuilds(builds => [...builds, curr]);
-            storeData(builds);
-            setCurr('');
-
-            // setReviews(reviews => [...reviews, answer]);
-            // storeData(reviews);
-            // setAnswer('');
-            // console.log(typeof reviews);
-          }}/>
+          <Button
+            title={(currlooking?'hide':'show')+" current build" } color="green" onPress = {() => setCurrlooking(!currlooking)}/>
+          <Separator />
+          {currView}
           <Separator />
           <Button
-                  color='green' title='Clear memory'
-                  onPress = {() => {
-                        console.log('clearing memory');
-                        clearAll()
-                      }}
-                />
-                <Separator />
-        </SafeAreaView>
-        
-        
+            color="green" title="Add" onPress={()=> {
+              setBuilds(builds => [...builds, curr]); storeData(builds);setCurr('');}}/>
+          <Separator />
+          <Button color='green' title='{Clear memory}' onPress = {() => {console.log('clearing memory'); clearAll()}}/>
+          <Separator />
+        </View>
+        </ImageBackground>
       );
 }
 
@@ -181,10 +153,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection:'column',
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        border: "thick solid red",
+        
         margin:"20px",
         padding:"20px",
       },
@@ -192,6 +163,14 @@ const styles = StyleSheet.create({
       marginVertical: 8,
       borderBottomColor: '#737373',
       borderBottomWidth: StyleSheet.hairlineWidth,
+    },
+    image: {
+      flex: 1,
+      justifyContent: "center"
+    },
+    tinyLogo: {
+      width: 50,
+      height: 50,
     },
   });
   
