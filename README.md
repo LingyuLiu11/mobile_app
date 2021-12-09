@@ -17,3 +17,5 @@ https://github.com/LingyuLiu11/mobile_app
 
 Movie:
 https://brandeis.zoom.us/rec/share/eiJmiicU5SRZzCc8x5NWscZI56Ui9GLPX24UJKS9V_WwKhPhYyxorBrcAAwzH_8A.Vujx9WDLlCqgURip
+
+Techniques used: React, bootstrap, async storage, mongodb etc.
