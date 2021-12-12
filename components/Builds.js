@@ -18,7 +18,7 @@ const Builds = () => {
   }
 
   let currView = "";
-  if (currlooking) {currView=<View><Text style ={{color:'blue'}}>{curr}</Text><Separator/></View>}
+  if (currlooking) {currView=<View><Text style ={{color:'yellow'}}>{curr}</Text><Separator/></View>}
   
   const storeData = async (value) => {
     try {
@@ -80,8 +80,7 @@ const Builds = () => {
         <Separator/>
         <Button color="green"title="Add"onPress={()=>{setBuilds(builds=>[...builds, curr]);storeData(builds);setCurr('')}}/>
         <Separator/>
-        <Button color="green"title="{Clear memory}"onPress={()=>{console.log("clearing memory");clearAll()}}/>
-        <Separator/>
+        
       </View>
     </ImageBackground>
   );

@@ -29,9 +29,8 @@ const Reviews = () => {
 
   const storeData = async (value) => {
       try {
-        const jsonValue = JSON.stringify(value);
-        await AsyncStorage.setItem('@reviews', jsonValue)
-        console.log('just stored '+jsonValue)
+        await AsyncStorage.setItem('@reviews', value)
+        console.log('just stored '+value)
       } catch (e) {
         console.dir(e)
       }
@@ -60,6 +59,7 @@ const Reviews = () => {
     try {
       console.log('in clearData')
       await AsyncStorage.clear()
+      //console.log(reviews)
     } catch(e) {
       console.log("error in clearData ")
       console.dir(e)
@@ -78,7 +78,8 @@ const Reviews = () => {
         <Button title={(debugging?'hide':'show')+" Riviews" }color="green"onPress = {() => setDebugging(!debugging)}/>
         {debugView}
         <Separator/>
-        <Button color='green' title='Clear memory' onPress = {() => {console.log('clearing memory');clearAll()}}/>
+        
+        
       </View>
     </ImageBackground>
   );
