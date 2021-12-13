@@ -1,6 +1,7 @@
 # mobile_app
 
-Warhammer community
+Name: Warhammer community
+
 Lingyu Liu
 lingyuliu@brandeis.edu
 
