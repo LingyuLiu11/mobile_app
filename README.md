@@ -19,3 +19,5 @@ Movie:
 https://brandeis.zoom.us/rec/share/deCk2-U_HDe7hJDhr6ST3Mgg0XueJUIIK1wvwVa3izyLfuyBhSPMfKYEv3TSFGvg.mqP8Ll86SvI8UfHU?startTime=1639354075000
 
 Techniques used: React, bootstrap, async storage, mongodb etc.
+
+The app also uses inframes to embed videoes.
